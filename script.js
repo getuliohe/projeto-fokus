@@ -15,7 +15,7 @@ const audioPlay = new Audio('/sons/play.wav');
 const audioPause = new Audio('/sons/pause.mp3');
 const audioBeep = new Audio('/sons/beep.mp3');
 
-let tempoDecorrido = 1500;
+let tempoDecorrido = 10;
 let intervaloId = null;
 
 musica.loop = true;
@@ -39,7 +39,7 @@ function alterarContexto(contexto){
         case 'foco':
             titulo.innerHTML = `Otimize sua produtividade,<br>
             <strong class="app__title-strong">mergulhe no que importa.</strong>`
-            tempoDecorrido = 1500;
+            tempoDecorrido = 10;
             mostrarTempo();
             break;
         case 'descanso-curto':
@@ -79,6 +79,11 @@ const contagemRegressiva = () =>{
     if (tempoDecorrido<=0){
         zerar()
         audioBeep.play()
+        const focoAtivo = html.getAttribute('data-contexto') == 'foco'
+        if (focoAtivo){
+            const evento = new CustomEvent('focoFinalizado')
+            document.dispatchEvent(evento)
+        }
         return;
     }
     tempoDecorrido -= 1;
