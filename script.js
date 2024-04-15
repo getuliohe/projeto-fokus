@@ -15,7 +15,7 @@ const audioPlay = new Audio('/sons/play.wav');
 const audioPause = new Audio('/sons/pause.mp3');
 const audioBeep = new Audio('/sons/beep.mp3');
 
-let tempoDecorrido = 10;
+let tempoDecorrido = 1500;
 let intervaloId = null;
 
 musica.loop = true;
@@ -39,7 +39,7 @@ function alterarContexto(contexto){
         case 'foco':
             titulo.innerHTML = `Otimize sua produtividade,<br>
             <strong class="app__title-strong">mergulhe no que importa.</strong>`
-            tempoDecorrido = 10;
+            tempoDecorrido = 1500;
             mostrarTempo();
             break;
         case 'descanso-curto':
