@@ -6,6 +6,7 @@ const removerTodasTarefasBt = document.querySelector('#btn-remover-todas');
 const formulario = document.querySelector('.app__form-add-task');
 const textArea = document.querySelector('.app__form-textarea');
 
+
 let tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
 let tarefaSelecionada = null
 let liTarefaSelecionada = null
@@ -82,6 +83,7 @@ novaTarefaBt.addEventListener('click', () =>{
 })
 
 formulario.addEventListener('submit', (evento) =>{
+    debugger
     evento.preventDefault();
     const tarefa = {
         descricao: textArea.value
